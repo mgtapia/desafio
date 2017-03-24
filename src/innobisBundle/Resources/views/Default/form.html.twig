@@ -1,0 +1,76 @@
+{% extends 'innobisBundle::main.html.twig' %}
+
+{% block title %}{% if check == 'No' %}{{ form.title }}{% else %}Respuestas{% endif %}{% endblock %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+	{{ include('innobisBundle:Default:menu.html.twig') }}
+	<div class="container">
+	  	<div class="col-md-offset-2 col-md-8">
+	      	<div class="page-header margin-none">
+	      		<h1 style="margin-top:100px">{{ form.title }}</h1>
+	      	</div>
+	      	{% if check == 'No' %}
+	      	{{ form_start(formAns, {'attr': {'role':'form'}}) }}
+			    <fieldset>
+			      	<div class="form-group">
+			      		{{ form_widget(formAns.formID, {'attr':{'placeholder':'Respuesta'},'value':form.id,'type':'hidden'}) }}
+			      		<span class="text-danger">{{ form_errors(formAns.formID) }}</span>
+			      	</div>
+			      	<div class="form-group">
+			      		{{ form_widget(formAns.userID, {'attr':{'placeholder':'Respuesta'},'value':app.user.id,'type':'hidden'}) }}
+			      		<span class="text-danger">{{ form_errors(formAns.userID) }}</span>
+			      	</div>
+			      	<div class="form-group">
+			      		<label class="col-md-2">{{form.preg1}}</label>
+			      		{{ form_widget(formAns.preg1, {'attr':{'placeholder':'Respuesta'},'class':"col-md-10 full-width"}) }}
+			      		<span class="text-danger">{{ form_errors(formAns.preg1) }}</span>
+			      	</div>
+			      	<div class="form-group">
+			      		<label class="col-md-2">{{form.preg2}}</label>
+			      		{{ form_widget(formAns.preg2, {'attr':{'placeholder':'Respuesta'},'class':"col-md-10 full-width",}) }}
+			      		<span class="text-danger">{{ form_errors(formAns.preg2) }}</span>
+			      	</div>
+			      	<div class="form-group">
+			      		<label class="col-md-2">{{form.preg3}}</label>
+			      		{{ form_widget(formAns.preg3, {'attr':{'placeholder':'Respuesta'},'class':"col-md-10 full-width"}) }}
+			      		<span class="text-danger">{{ form_errors(formAns.preg3) }}</span>
+			      	</div>
+			    </fieldset>
+			    <p>
+			    	{{ form_widget(formAns.save, {'attr':{'class':'btn','label':'Responder'}}) }}
+			    </p>
+		    {{ form_end(formAns) }}
+	      	{% elseif check == 'Si' %}
+				<div class="table-responsive">
+			      <table class="table table-striped table-hover">
+			      	<thead>
+				      	<tr>
+							<th>#</th>
+							<th>ID Usuario</th>
+							<th>{{form.preg1}}</th>
+							<th>{{form.preg2}}</th>
+							<th>Mes</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for item in ans %}
+						<tr>
+							<td>{{ loop.index }}</td>
+							<td>{{ item.userID }}</td>
+							<td>{{ item.preg1 }}</td>
+							<td>{% if item.preg2 == 1 %}Entre 0-9 años{% elseif item.preg2 == 2 %}Entre 10-19 años
+							{% elseif item.preg2 == 3 %}Entre 20-29 años{% elseif item.preg2 == 4 %}Entre 30-39 años
+							{% elseif item.preg2 == 5 %}Entre 40-49 años{% elseif item.preg2 == 6 %}50 o más años
+							{% endif %}</td>
+							<td>{{ item.preg3 }}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+			      </table>
+			    </div>
+	      	{% endif %}
+	    </div>   
+	</div>
+{% endif %}
+{% endblock %}

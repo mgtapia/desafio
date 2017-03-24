@@ -1,0 +1,48 @@
+{% extends 'innobisBundle::main.html.twig' %}
+
+{% block title %}Regístrate{% endblock %}
+
+{% block body %}
+  <div class="form-login">
+    <div class="dev-form">
+      <h1>Regístrate</h1>
+      <h6>¿Ya tienes cuenta? <a href="{{path('innobis_homepage')}}">Inicia Sesión</a></h6>
+      <div class="col-md-7">
+      	{{ form_start(form, {'attr': {'role':'form'}}) }}
+	    <fieldset>
+	      	<div class="form-group">
+	      		{{ form_widget(form.firstname, {'attr':{'placeholder':'Nombre'}}) }}
+	      		<span class="text-danger">{{ form_errors(form.firstname) }}</span>
+	      	</div>
+	      	<div class="form-group">
+	      		{{ form_widget(form.lastname, {'attr':{'placeholder':'Apellido'}}) }}
+	      		<span class="text-danger">{{ form_errors(form.lastname) }}</span>
+	      	</div>
+	      	<div class="form-group">
+	      		{{ form_widget(form.email, {'attr':{'placeholder':'Correo Electrónico'}}) }}
+	      		<span class="text-danger">{{ form_errors(form.email) }}</span>
+	      	</div>
+	      	<div class="form-group">
+	      		{{ form_widget(form.password, {'attr':{'placeholder':'Contraseña'}}) }}
+	      		<span class="text-danger">{{ form_errors(form.password) }}</span>
+	      	</div>
+	    </fieldset>
+	    <p>
+	      	{{ form_widget(form.save, {'attr':{'class':'btn','label':'Registrarse'}}) }}
+	    </p>
+      	{{ form_end(form) }}
+      </div>
+      <form class="col-md-5 dev-social-login min-lg">
+          <h5>O ingresa con una de tus redes sociales</h5>
+          <div class="social-facebook">
+            <button class="dev-social-logo"><img src="{{asset('img/facebook.png')}}"/></button>
+            <button class="dev-social-button" type="submit">Continuar con Facebook</button>
+          </div>
+          <div class="social-google">
+            <button class="dev-social-logo"><img src="{{asset('img/google.png')}}"/></button>
+            <button class="dev-social-button" type="submit">Continuar con Google</button>
+          </div>
+        </form> 
+    </div>
+  </div>
+{% endblock %}

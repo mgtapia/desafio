@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Bienvenido a ReActive Forms{% endblock %}
+
+{% block stylesheets %}
+	<style type="text/css">
+   		@font-face {
+		    font-family: HelveticaNeueThin;
+		 	src: url("{{asset('css/fonts/helveticaNeue-Thin.otf')}}");  
+		}		
+		@font-face {
+		  font-family: 'Material Icons';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: local('Material Icons'), local('MaterialIcons-Regular'), url("{{asset('css/fonts/googleMaterialIcons.woff2')}}") format('woff2');
+		}
+ 	</style>
+	<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+{% endblock %}
+
+{% block body %}{% endblock %}
+	
+{% block javascripts %}
+	<script src="{{asset('js/jquery.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+{% endblock %}

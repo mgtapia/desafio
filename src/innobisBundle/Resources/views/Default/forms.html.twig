@@ -1,0 +1,38 @@
+{% extends 'innobisBundle::main.html.twig' %}
+
+{% block title %}ReActive Forms{% endblock %}
+
+{% block body %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+	{{ include('innobisBundle:Default:menu.html.twig') }}
+	<div class="container">
+	  	<div class="col-md-offset-2 col-md-8">
+	      	<div class="page-header margin-none">
+	      		<h1 style="margin-top:100px">Formularios</h1>
+	      	</div>
+		    <div class="table-responsive">
+		      <table class="table table-striped table-hover">
+		      	<thead>
+			      	<tr>
+						<th>#</th>
+						<th>Título</th>
+						<th>Autor</th>
+						<th>Ver</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for form in forms %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td>{{ form.title }}</td>
+						<td>{{ form.author }}</td>
+						<td><a href="{{path('innobis_form',{'id':form.id})}}">Ir a {{form.title}}</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+		      </table>
+		    </div>
+		</div>
+	</div>
+{% endif %}
+{% endblock %}

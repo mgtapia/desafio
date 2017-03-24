@@ -1,0 +1,313 @@
+.form-login
+{
+	min-height: 90vh;
+	padding-top: 100px;
+	h1
+	{
+		font-size: 55px;
+		font-weight: 500;
+		margin-bottom: -15px;
+	}
+	h2|
+	{
+		font-size: 40px;
+		font-weight: 500;
+	}
+	h6
+	{
+		font-size: 16px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+		width: 80%;
+	}
+	a, b
+	{
+		font-size: 16px;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
+	a
+	{
+		opacity: 0.9;
+		&:hover
+		{
+			opacity: 1;
+		}
+	}
+	.dev-form
+	{
+		margin-left: 20%;
+		width: 60%;
+		form
+		{
+			margin-top: 10px;
+			border-right: solid 1px #888;
+			input[type="email"], input[type="password"],
+			input[type="text"], textarea
+			{
+				border: none;
+				border-bottom: solid 1px #eee;
+				display: block;
+				font-size: 16px;
+				height: 45px;
+				margin-bottom: 5px;
+				padding-bottom: 1px;
+				transition: border-color .3s ease;
+				width: 90%;
+				&:hover
+				{
+					border-color: black;
+				}
+				&:focus
+				{
+					border-bottom: solid 2px @base-ter-color;
+					outline: none;
+					padding-bottom: 0;
+					&::-webkit-input-placeholder {
+    					*font-size: 12px;
+					}
+				}
+				&::-webkit-input-placeholder {
+    				color: #888;
+				}
+			}
+			input[type="checkbox"]
+			{
+
+				cursor:pointer;
+				float: left;
+				height: 16px;
+				margin-top: 16px;
+				vertical-align: middle;
+				width: 16px;
+			}
+			label, a
+			{
+				float: left;
+				font-size: 15px;
+				margin-left: 5px;
+				margin-top: 13px;
+			}
+			a
+			{
+				float: right;
+				margin-right: 15%;
+			}
+			a[type="submit"], button[type="submit"]
+			{
+				background-color: transparent;
+				border: solid 1px @base-ter-color;
+				border-radius: 30px;
+				color: @base-ter-color;
+				display: block;
+				float: left;
+				letter-spacing: 1px;
+				margin-top: 20px;
+				padding: 9px 35px;
+				&:hover
+				{
+					background-color: @base-ter-color;
+					color: white;
+				}
+			}
+			&.dev-social-login
+			{
+				border: none;
+				h5
+				{
+					margin-left: 15%;
+					margin-top: 10px;
+					text-align: left;
+				}
+			}
+			button.dev-social-button
+			{
+				background: transparent;
+				border-radius: 0;
+				color: @base-ter-color;
+				font-family: @template-roboto;
+				font-size: 13px;
+				height: 45px;
+				margin-top: 20px;
+				width: calc(85% ~"- 45px");
+			}
+			button.dev-social-logo
+			{
+				background: @base-ter-color;
+				color: white;
+				height: 45px;
+				margin-left: 15%;
+				margin-top: 20px;
+				width: 45px;
+			}
+			.social-facebook
+			{
+				button.dev-social-button
+				{
+					color: #3b5998;
+					border: solid 1px #3b5998;
+				}
+				&:hover button.dev-social-button
+				{
+					color: white;
+					background: #3b5998;
+				}
+				button.dev-social-logo
+				{
+					background: #3b5998;
+					border: solid 1px #3b5998;
+				}
+				img
+				{
+					border-radius: 50%;
+					height: 80%;
+				}
+			}
+			.social-google
+			{
+				button.dev-social-button
+				{
+					color: #d62d20;
+					border: solid 1px #d62d20;
+				}
+				&:hover button.dev-social-button
+				{
+					color: white;
+					background: #d62d20;
+				}
+				button.dev-social-logo
+				{
+					background: #d62d20;
+					border: solid 1px #d62d20;
+				}
+				img
+				{
+					border-radius: 50%;
+					height: 80%;
+				}
+			}
+			button
+			{
+				float: left;
+			}
+			a.reset
+			{
+				margin-top: -25px;
+			}
+			h3
+			{
+				font-size: 14px;
+				margin-top: 22px;
+				text-align: left;
+			}
+			&.side-form
+			{
+				border: none;
+				margin-left: 10%;
+				width: 90%;
+				input[type="email"], input[type="password"],
+				input[type="text"], textarea
+				{
+					height: 40px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: @base-desktop)
+{
+	.form-login
+	{
+		padding-top: 50px;
+		h1
+		{
+			font-size: 35px;
+		}
+		h3
+		{
+			font-size: 16px;
+		}
+		.dev-form
+		{
+			margin-left: 10%;
+			width: 80%;
+			form
+			{
+				border: none;
+				a
+				{
+					float: left;
+					margin-left: 0;
+					margin-right: 0;
+					margin-top: 20px;
+				}
+				button[type="submit"]
+				{
+					float: none;
+				}
+				button.dev-social-button
+				{
+					width: calc(70% ~"- 45px");
+				}
+				&.dev-social-login
+				{
+					padding-bottom: 60px;
+					h5
+					{
+						margin-top: 30px;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: @base-phone)
+{
+	.form-login
+	{
+		a, b
+		{
+			font-size: 16px;
+		}
+		h6
+		{
+			margin-left: 0;
+			margin-top: 95px;
+			width: 90%;
+		}
+		.dev-form
+		{
+			form
+			{
+				input[type="text"], input[type="password"]
+				{
+					height: 40px;
+					font-size: 14px;
+					width: 95%;
+				}
+				button[type="submit"]
+				{
+					margin-top: 20px;
+				}
+				button.dev-social-button
+				{
+					width: calc(90% ~"- 45px");
+					margin-top: 20px;
+				}
+				button.dev-social-logo
+				{
+					margin-left: 5%;
+					margin-top: 20px;
+				}
+				&.dev-social-login
+				{
+					h5
+					{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

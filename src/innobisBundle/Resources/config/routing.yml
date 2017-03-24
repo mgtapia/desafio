@@ -1,0 +1,42 @@
+innobis_homepage:
+    path:     /
+    defaults: { _controller: innobisBundle:Default:index }
+
+innobis_users:
+    path:     /users
+    defaults: { _controller: innobisBundle:Default:users }
+innobis_signup:
+    path:     /signup
+    defaults: { _controller: innobisBundle:Default:signup }
+innobis_create:
+    path:     /create
+    defaults: { _controller: innobisBundle:Default:create }
+    methods: POST
+innobis_delete:
+    path:     /delete/{id}
+    defaults: { _controller: innobisBundle:Default:delete }
+    methods: [POST, DELETE]
+
+innobis_redirect_signup:
+    path:     /create
+    defaults:
+        _controller: innobisBundle:Default:signup
+        path: /signup
+        permanent: true
+
+innobis_check:
+    path:   /check
+    defaults: { _controller: innobisBundle:Security:check }
+innobis_logout:
+    path:   /logout
+
+innobis_forms:
+    path:     /forms
+    defaults: { _controller: innobisBundle:Security:forms }
+innobis_form:
+    path:     /form/{id}
+    defaults: { _controller: innobisBundle:Security:form }
+innobis_createform:
+    path:     /createform
+    defaults: { _controller: innobisBundle:Security:create }
+    methods: POST

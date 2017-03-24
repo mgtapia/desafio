@@ -1,0 +1,119 @@
+.container
+{
+	.margin-top(200);
+}
+.current
+{
+	color: @base-color;
+	&:hover
+	{
+		color: @base-color-light;
+		text-decoration: none;
+	}
+}
+.bg
+{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+	background-color: @base-background;
+}
+.viewer
+{
+	background-color: #111;
+	color: #ddd;
+	min-height: 548px;
+	width: 100%;
+	h4
+	{
+		color: #ccc;
+		font-size: 18px;
+	}
+	h5
+	{
+		color: #777;
+	}
+	p
+	{
+		.default;
+		font-size: 12px;
+		color: #444;
+		width: auto;
+	}
+}
+.btn
+{
+	&.btn-header
+	{
+		&:hover
+		{
+			background-color: @base-btn-primary-hover;
+			color: @base-btn-primary-color;
+		}
+		background-color: @base-btn-primary-bg;
+		border-radius: 2dp;
+		color: @base-btn-primary-color;
+		font-size: 13px;
+		margin-top: 10px;
+		transition: all .2 ease;
+		width: 120px;
+		Height: 36dp; 
+		Elevation: 0dp;
+	}
+
+	&.btn-defaultMG
+	{
+		&:hover
+		{
+			background-color: @base-ter-hover;
+			color: @base-btn-primary-color;
+		}
+		background-color: @brand-primary;
+		border-radius: 2dp;
+		color: @base-btn-primary-color;
+		font-size: 13px;
+		margin-top: 10px;
+		transition: all .2 ease;
+		width: 120px;
+		Height: 36dp; 
+		Elevation: 0dp;
+	}
+
+	&.btn-grizzly
+	{
+		.button-gen(@base-btn-grizzly-color);
+	}
+	&.btn-section
+	{
+		.button-gen(@base-btn-default-color);
+	}
+	&.btn-register
+	{
+		.button-gen(@base-pri-color, @base-color-dark, 7px, 25px);
+		background-color: @base-pri-color;
+		color: white;
+		&:hover
+		{
+			background-color: darken(@base-pri-color, 5%);
+			border-color: darken(@base-pri-color, 5%);
+			color: white;
+		}
+	}
+	&.btn-client
+	{
+		padding: 1px 23px;
+		background-color: #111;
+		color: #f2f2f2;
+	}
+}
+.jumbotron
+{
+	background-color: @base-background-page;
+	box-shadow: 0 1px 3px #aaa;
+	margin-top: 20px;
+}
+.full-width
+{
+	width: 100%;
+}

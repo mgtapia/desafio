@@ -1,0 +1,45 @@
+{% extends 'innobisBundle::main.html.twig' %}
+
+{% block body %}
+  <div>
+  {% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <br/>
+    <div class="alert alert-success" role="alert">
+      <div class="container">{{ flashMessage }}</div>
+    </div>
+  {% endfor %}
+  <div class="form-login">
+    <div class="dev-form">
+      <h1>Inicia Sesión</h1>
+      <h6>¿Eres nuevo aquí? <a href="{{path('innobis_signup')}}">Regístrate</a></h6>
+       <form action="{{path('innobis_check')}}" method="post"  class="col-md-7">
+       		{% if error %}
+				<div class="text-dange">
+					<p><strong>{{ error.messageKey }}</strong></p>
+				</div>	
+       		{% endif %}
+          <input id="emailHolder" type="email" placeholder="Email" name="_email" value="{{last_username}}" required autofocus/>
+          <input id="passHolder" type="password" placeholder="Contraseña" name="_password" required autofocus/>
+          <input type="hidden" name="_target_path" value="innobis_forms"/>
+          <o class="min-sm">
+            <input type="checkbox"/>
+            <h3>Recuérdame</h3>
+            <br class="max-lg"/>
+            <a id="passReset" class="reset">¿Olvidaste tu contraseña?</a>
+          </o>
+          <button type="submit">Ingresar</button>
+        </form>
+        <form class="col-md-5 dev-social-login min-lg">
+          <h5>O ingresa con una de tus redes sociales</h5>
+          <div class="social-facebook">
+            <button class="dev-social-logo"><img src="{{asset('img/facebook.png')}}"/></button>
+            <button class="dev-social-button" type="submit">Continuar con Facebook</button>
+          </div>
+          <div class="social-google">
+            <button class="dev-social-logo"><img src="{{asset('img/google.png')}}"/></button>
+            <button class="dev-social-button" type="submit">Continuar con Google</button>
+          </div>
+        </form>   
+    </div>
+  </div></div>
+{% endblock %}
